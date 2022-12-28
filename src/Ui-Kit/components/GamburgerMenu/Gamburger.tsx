@@ -1,16 +1,13 @@
 import React, { FC, useState, useEffect } from 'react'
 import "./Gamburger.css";
 
-interface GamburgerProps {
-    label: 'Gamburger'
-}
 
-export const Gamburger: FC<GamburgerProps> = ({ label }) => {
+export const Gamburger: FC = ({...props}) => {
 
   const [toggle, setToggle] = useState<boolean>(false);
 
   useEffect(() => {
-    console.log(toggle);
+    localStorage.setItem('menu', `${toggle}`);
   }, [toggle])
 
   const log = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -19,7 +16,7 @@ export const Gamburger: FC<GamburgerProps> = ({ label }) => {
   }
 
   return (
-    <div className={`${toggle ? 'menu__btn menu__btn-active' : 'menu__btn'}`} onClick = {log}>
+    <div className={`${toggle ? 'menu__btn menu__btn-active' : 'menu__btn'}`} onClick = {log} {...props}>
       <span></span>
     </div>
   )

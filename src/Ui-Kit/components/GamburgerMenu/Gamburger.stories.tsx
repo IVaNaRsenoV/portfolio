@@ -6,12 +6,11 @@ export default {
     component: Gamburger,
     title: "Ui-Kit/Gamburger",
 
-    argTypes: {}
+    argTypes: {
+        onClick: { action: 'clicked' }
+    }
 } as ComponentMeta<typeof Gamburger>;
 
 const Template: ComponentStory<typeof Gamburger> = (args) => <Gamburger {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-    label: "Gamburger",
-}
